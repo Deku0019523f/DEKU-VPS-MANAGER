@@ -1,0 +1,18 @@
+[Unit]
+Description=Deku VPS Manager — Telegram Bot
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/deku_vps_manager
+ExecStart=/usr/bin/python3 /root/deku_vps_manager/bot.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=deku-vps
+
+[Install]
+WantedBy=multi-user.target
